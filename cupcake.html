@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single cupcake</title>
+</head>
+<body>
+    
+    <h1>cupcake</h1>
+    <h2>single cupcake</h2>
+
+    <div>
+        <h3>{{cupcake.flavor}}</h3>
+        <p>{{cupcake.size}}</p>
+        <p>{{cupcake.rating}}</p>
+        <img src="{{cupcake.image}}" alt="">
+    </div>
+
+    <h2>update a cupcake</h2>
+
+    <form action="/api/cupcakes/{{cupcake.id}}" method="patch">
+        <label for="flavor">flavor</label>
+        <input type="text" name="flavor" id="flavor">
+        <label for="size">Size</label>
+        <input type="text" name="size" id="size">
+        <label for="rating">rating</label>
+        <input type="range" name="rating" id="rating">
+        <label for="image">Image</label>
+        <input type="image" name="image" id="image">
+        <button type="submit"></button> 
+    </form>
+
+    <h2>delete a cupcake</h2>
+
+    <form action="/api/cupcakes/{{cupcake.id}}" method="delete">
+        <button type="submit"></button>
+    </form>
+    
+</body>
+</html>

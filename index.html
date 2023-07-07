@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cupcakes</title>
+</head>
+<body>
+   
+    <h1>cupcakes</h1>
+    <h2>all cupcakes</h2>
+    {% for cupcake in cupcakes %}
+    <ul class="cupcake-list">
+        <li>{{cupcake}} <button type="" class="delete-button" data-id="{{cupcake.id}}">X</button> <button type="" class="update-button">Edit</button></li>
+    </ul>
+    {% endfor %}
+
+    <h2>add a cupcake</h2>
+
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+
+    <p>
+        {{ field.label }} {{ field }}
+        {% if field.errors %}
+        <ul class="errors">
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </p>
+
+    <!-- <form action="/api/cupcakes" method="post">
+        <label for="flavor">flavor</label>
+        <input type="text" name="flavor" id="flavor">
+        <label for="size">Size</label>
+        <input type="text" name="size" id="size">
+        <label for="rating">rating</label>
+        <input type="range" name="rating" id="rating">
+        <label for="image">Image</label>
+        <input type="image" name="image" id="image">
+        <button type="submit">Add</button>
+    </form> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/static/index.js"></script>
+
+</body>
+</html>
